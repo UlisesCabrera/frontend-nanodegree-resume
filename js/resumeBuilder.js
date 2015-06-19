@@ -10,27 +10,27 @@ $('#header').prepend(formattedName); // prepend name on the header
 var bio = {
     "name" : name,
     "role" : role,
-    "contact info" : {
+    "contacts" : {
         "E-Mail" : "ucabrera@outlook.com",
         "Phone" :  "347-369-3657",
         "Github" : "elgris12",
         "Google Pus" : "Ulises Cabrera",
         "LinkedIn" : "Ulises Cabrera",
-        "Location" : "New York"
+        "Location" : "Yonkers, 10705"
     },
     "Picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
     "Welcome Message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
     "skills" :  ["HTML 5", "Javascript", "CSS 3", "Adobe Suite" ]
 }; // Bio info JSON
 bio.display = function() {
-	var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["contact info"]);
-	var formattedMobile = HTMLmobile.replace('%data%', bio["contact info"].Phone);
-	var formattedEmail = HTMLemail.replace('%data%', bio["contact info"]["E-Mail"])
+	var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio.contacts);
+	var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.Phone);
+	var formattedEmail = HTMLemail.replace('%data%', bio.contacts["E-Mail"])
 	var formattedBioPic = HTMLbioPic.replace('%data%', bio.Picture);
 	var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["Welcome Message"]);
-	var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio["contact info"]["Google Pus"]);
-	var formattedGitHub = HTMLgithub.replace('%data%', bio["contact info"].Github);
-	var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio["contact info"].LinkedIn);
+	var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio.contacts["Google Pus"]);
+	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.Github);
+	var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.LinkedIn);
 
 	$('#topContacts').append(formattedMobile)
 		.append(formattedEmail)
@@ -57,14 +57,14 @@ var work = {
             "employer" : "NewBay Media LCC", 
             "title" : "Fullfilment Coordinator",
             "dates" : "2011 - Present",
-            "location" : "New York City",
+            "location" : "10016",
             "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
         },
         {
             "employer" : "Conway Stores", 
             "title" : "Assistant Manager",
             "dates" : "2006 - 2011",
-            "location" : "Bronx",
+            "location" : "10458",
             "description" : " Helped manager with daily duties"
         }
     ]
@@ -125,11 +125,11 @@ projects.display = function() {
 } // encapsulating display function to show work info on page
 
 var education = {
-    "Schools" : [
+    "schools" : [
         {
             "name" : "University Of The People",
             "dates" : "2015 - Present",
-            "location" : "Online",
+            "location" : "91100",
             "major" : "Computer Science",
             "degree" : "Bachelors",
             "url" : "http://uopeople.edu/"
@@ -137,7 +137,7 @@ var education = {
         {
             "name" : "New York Institute of English and Business",
             "dates" : "2012-2013",
-            "location" : "New York City",
+            "location" : "10030",
             "major" : "Computerized Apllications",
             "degree" : "Certificate",
             "url" :  "http://nyieb.org/"
@@ -146,7 +146,7 @@ var education = {
     ],
     "Online Courses" : [
         {
-            "School" : "Udaticy",
+            "school" : "Udaticy",
             "dates" : "2015 -  Present",
             "title" : "Front-End Nanodegree",
             "url" :    "https://www.udacity.com/"
@@ -154,12 +154,43 @@ var education = {
     ]
 }; // Education info JSON
 
+education.display = function() {
+	for (school in education.schools) {
+		var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
+		var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+		var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
+		var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
+		var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[school].major);
+		
+		$('#education').append(HTMLschoolStart);
+		$('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree)
+								  .append(formattedSchoolDates)
+								  .append(formattedSchoolMajor);
+	};
+		$('#education').append(HTMLonlineClasses);
+	
+	for (school in education["Online Courses"])	{
+		var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education["Online Courses"][school].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education["Online Courses"][school].school);
+		var formattedOnlineDates = HTMLonlineDates.replace('%data%', education["Online Courses"][school].dates);
+		var formattedOnlineURL = HTMLonlineURL.replace('%data%', education["Online Courses"][school].url);
+			$('#education').append(HTMLschoolStart);
+			$('.education-entry:last').append(formattedOnlineTitle + formattedOnlineSchool)
+					   .append(formattedOnlineDates)
+					   .append(formattedOnlineURL);	
+	};
+}// encapsulating display function to show education info on page
+
+
+
 bio.display();
 work.display();
 projects.display();
+education.display();
 // display resume info
 
 $('#main').append(internationalizeButton);
+//$('#mapDiv').append(googleMap);
 function inName(name) {
 	name = $('#name').text();
 	var arrayOfNames = name.split(" ");
