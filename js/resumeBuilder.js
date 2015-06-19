@@ -36,6 +36,10 @@ bio.display = function() {
 		.append(formattedEmail)
 		.append(formattedGitHub)
 		.append(formattedLinkedIn);
+	$('#footerContacts').append(formattedMobile)
+		.append(formattedEmail)
+		.append(formattedGitHub)
+		.append(formattedLinkedIn);	
 	$('#header').append(formattedBioPic)
 		.append(formattedWlcMsg)
 		.append(HTMLskillsStart);
@@ -146,7 +150,7 @@ var education = {
     ],
     "Online Courses" : [
         {
-            "school" : "Udaticy",
+            "school" : "Udacity",
             "dates" : "2015 -  Present",
             "title" : "Front-End Nanodegree",
             "url" :    "https://www.udacity.com/"
