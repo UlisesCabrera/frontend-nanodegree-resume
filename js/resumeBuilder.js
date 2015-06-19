@@ -11,26 +11,26 @@ var bio = {
     "name" : name,
     "role" : role,
     "contacts" : {
-        "E-Mail" : "ucabrera@outlook.com",
-        "Phone" :  "347-369-3657",
-        "Github" : "elgris12",
-        "Google Pus" : "Ulises Cabrera",
-        "LinkedIn" : "Ulises Cabrera",
-        "Location" : "Yonkers, NY"
+        "e-mail" : "ucabrera@outlook.com",
+        "phone" :  "347-369-3657",
+        "github" : "elgris12",
+        "google plus" : "Ulises Cabrera",
+        "linkedIn" : "Ulises Cabrera",
+        "location" : "Yonkers, NY"
     },
-    "Picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
-    "Welcome Message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
+    "picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
+    "welcome message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
     "skills" :  ["HTML 5", "Javascript", "CSS 3", "Adobe Suite" ]
 }; // Bio info JSON
 bio.display = function() {
 	var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio.contacts);
-	var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.Phone);
-	var formattedEmail = HTMLemail.replace('%data%', bio.contacts["E-Mail"])
-	var formattedBioPic = HTMLbioPic.replace('%data%', bio.Picture);
-	var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["Welcome Message"]);
-	var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio.contacts["Google Pus"]);
-	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.Github);
-	var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.LinkedIn);
+	var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.phone);
+	var formattedEmail = HTMLemail.replace('%data%', bio.contacts["e-mail"])
+	var formattedBioPic = HTMLbioPic.replace('%data%', bio.picture);
+	var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["welcome message"]);
+	var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio.contacts["google Plus"]);
+	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
+	var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn);
 
 	$('#topContacts').append(formattedMobile)
 		.append(formattedEmail)
@@ -195,7 +195,7 @@ education.display();
 // display resume info
 
 $('#main').append(internationalizeButton);
-//$('#mapDiv').append(googleMap);
+$('#mapDiv').append(googleMap);
 function inName(name) {
 	name = $('#name').text();
 	var arrayOfNames = name.split(" ");
