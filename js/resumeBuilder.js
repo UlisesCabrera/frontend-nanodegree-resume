@@ -152,11 +152,28 @@ displayWork();
 
 //work section ends
 
+$('#main').append(internationalizeButton);
+function inName(name) {
+	name = $('#name').text();
+	var arrayOfNames = name.split(" ");
+	var lastName = arrayOfNames[1].toUpperCase();
+	var firstName = arrayOfNames[0];
+	var firstName = firstName.slice(0, 1).toUpperCase() + firstName.slice(1).toLowerCase();
+	var fullName = firstName + ' ' + lastName;
+	return fullName
+}  //Internationalize Names function
+
+
+
+
 $(document).click(function(loc) {
   // your code goes here
     var x = loc.pageX;
     var y = loc.pageY;
     
     logClicks(x,y);
-});
+}); // Collecting Click locations
+
+
+
 
