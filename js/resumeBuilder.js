@@ -16,7 +16,7 @@ var bio = {
         "Github" : "elgris12",
         "Google Pus" : "Ulises Cabrera",
         "LinkedIn" : "Ulises Cabrera",
-        "Location" : "Yonkers, 10705"
+        "Location" : "Yonkers, NY"
     },
     "Picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
     "Welcome Message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
@@ -57,14 +57,14 @@ var work = {
             "employer" : "NewBay Media LCC", 
             "title" : "Fullfilment Coordinator",
             "dates" : "2011 - Present",
-            "location" : "10016",
+            "location" : "New York, NY",
             "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
         },
         {
             "employer" : "Conway Stores", 
             "title" : "Assistant Manager",
             "dates" : "2006 - 2011",
-            "location" : "10458",
+            "location" : "Bronx, NY",
             "description" : " Helped manager with daily duties"
         }
     ]
@@ -129,7 +129,7 @@ var education = {
         {
             "name" : "University Of The People",
             "dates" : "2015 - Present",
-            "location" : "91100",
+            "location" : "Pasadena,CA",
             "major" : "Computer Science",
             "degree" : "Bachelors",
             "url" : "http://uopeople.edu/"
@@ -137,7 +137,7 @@ var education = {
         {
             "name" : "New York Institute of English and Business",
             "dates" : "2012-2013",
-            "location" : "10030",
+            "location" : "New York, NY",
             "major" : "Computerized Apllications",
             "degree" : "Certificate",
             "url" :  "http://nyieb.org/"
