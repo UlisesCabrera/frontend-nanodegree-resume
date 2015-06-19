@@ -61,6 +61,13 @@ var work = {
             "dates" : "2011 - Present",
             "location" : "New York City",
             "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
+        },
+        {
+            "employer" : "Conway Stores", 
+            "title" : "Assistant Manager",
+            "dates" : "2006 - 2011",
+            "location" : "Bronx",
+            "description" : " Helped manager with daily duties"
         }
     ]
 };
@@ -88,37 +95,68 @@ var projects = {
     ]
 };
 
+var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
 
 
 
 
 
-/* Bio info starts
-var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["Contact info"]);
-var formattedMobile = HTMLmobile.replace('%data%', bio["Contact info"].Phone);
-var formattedEmail = HTMLemail.replace('%data%', bio["Contact info"]["E-Mail"])
+// Bio info starts
+var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["contact info"]);
+var formattedMobile = HTMLmobile.replace('%data%', bio["contact info"].Phone);
+var formattedEmail = HTMLemail.replace('%data%', bio["contact info"]["E-Mail"])
 var formattedBioPic = HTMLbioPic.replace('%data%', bio.Picture);
 var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["Welcome Message"]);
-var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio["Contact info"]["Google Pus"]);
-var formattedGitHub = HTMLgithub.replace('%data%', bio["Contact info"].Github);
-var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio["Contact info"].LinkedIn);
- Bio info ends */
-
-/*work section starts
-
-var formattedWorkDates = HTMLworkDates.replace('%data%', work.dates);
-var formattedWorkEmployer = HTMLworkEmployer.replace('%data%', work.employer);
-var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.location);
-var formattedWorkTitle = HTMLworkTitle.replace('%data%', work["current position"]);
-var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.description);
+var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio["contact info"]["Google Pus"]);
+var formattedGitHub = HTMLgithub.replace('%data%', bio["contact info"].Github);
+var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio["contact info"].LinkedIn);
 
 
-$('#workExperience').append(HTMLworkStart);
-var $workSection = $('#workExperience div');
-$workSection.prepend(formattedWorkEmployer + formattedWorkTitle);
-$workSection.append(formattedWorkDates);
-$workSection.append(formattedWorkLocation);
-$workSection.append(formattedWorkDescription);
+$('#topContacts').append(formattedMobile)
+    .append(formattedEmail)
+    .append(formattedGitHub)
+    .append(formattedLinkedIn);
+$('#header').append(formattedBioPic)
+    .append(formattedWlcMsg)
+    .append(HTMLskillsStart);
 
-work section ends */
+if (bio.skills) {
+    for (skill in bio.skills) {
+        var formattedSkills = HTMLskills.replace('%data%', bio.skills[skill]);
+        $('#header').append(formattedSkills);
+    };
+}
+
+// Bio info ends
+
+//work section starts
+function displayWork() {
+    for (job in work.jobs){
+        var formattedWorkDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+        var formattedWorkEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+        var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+        var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+        var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+
+        $('#workExperience').append(HTMLworkStart);
+        $('div.work-entry:last')
+            .append(formattedWorkEmployer + formattedWorkTitle)
+            .append(formattedWorkDates)
+            .append(formattedWorkLocation)
+            .append(formattedWorkDescription);
+    };   
+}
+
+displayWork();
+
+
+//work section ends
+
+$(document).click(function(loc) {
+  // your code goes here
+    var x = loc.pageX;
+    var y = loc.pageY;
+    
+    logClicks(x,y);
+});
 
