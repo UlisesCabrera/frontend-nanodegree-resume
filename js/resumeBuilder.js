@@ -165,6 +165,7 @@ education.display = function() {
 		$('#education').append(HTMLschoolStart);
 		$('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree)
 								  .append(formattedSchoolDates)
+								  .append(formattedSchoolLocation)
 								  .append(formattedSchoolMajor);
 	};
 		$('#education').append(HTMLonlineClasses);
