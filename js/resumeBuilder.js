@@ -21,7 +21,7 @@ var bio = {
     "Picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
     "Welcome Message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
     "skills" :  ["HTML 5", "Javascript", "CSS 3", "Adobe Suite" ]
-};
+}; // Bio info JSON
 bio.display = function() {
 	var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["contact info"]);
 	var formattedMobile = HTMLmobile.replace('%data%', bio["contact info"].Phone);
@@ -46,8 +46,83 @@ bio.display = function() {
 			$('#header').append(formattedSkills);
 		};
 	}
-}
+} // encapsulating display function to show bio info on page
 
+
+
+
+var work = {
+    "jobs" : [ 
+        {
+            "employer" : "NewBay Media LCC", 
+            "title" : "Fullfilment Coordinator",
+            "dates" : "2011 - Present",
+            "location" : "New York City",
+            "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
+        },
+        {
+            "employer" : "Conway Stores", 
+            "title" : "Assistant Manager",
+            "dates" : "2006 - 2011",
+            "location" : "Bronx",
+            "description" : " Helped manager with daily duties"
+        }
+    ]
+}; // work info JSON
+
+work.display = function() {
+	for (job in work.jobs){
+	var formattedWorkDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+	var formattedWorkEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+	var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+	var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+	var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+
+	$('#workExperience').append(HTMLworkStart);
+	$('div.work-entry:last')
+		.append(formattedWorkEmployer + formattedWorkTitle)
+		.append(formattedWorkDates)
+		.append(formattedWorkLocation)
+		.append(formattedWorkDescription);
+	};   
+} // encapsulating display function to show work info on page
+var projects = {
+    "projects" : [
+        {
+            "title" : "Print Ads",
+            "dates" : 2015,
+            "description" : "Created print designs for Music Magazines",
+            "images" : ["./images/PrintDesignShowCase-small.jpg"]
+        },
+        {
+            "title" : "Banners Ads",
+            "dates" : 2015,
+            "description" : "Created various banners ads to promote events and subscriptions",
+            "images" : ["./images/BannerAdsShowCase-small.jpg"]
+        },
+        {
+            "title" : "HTML Responsive Emails",
+            "dates" : 2015,
+            "description" : "Build HTML Newsletters and Marketing Emails",
+            "images" : ["./images/HTMLEmailsShowCase-small.jpg"]
+        }
+    ]
+}; // Project info JSON
+
+projects.display = function() {
+	for (project in projects.projects) {
+	var formattedProjectTitle =  HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+	var formattedProjectDates =  HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+	var formattedProjectDescription =  HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+	var formattedProjectImage =  HTMLprojectImage.replace('%data%', projects.projects[project].images[0]);
+	
+	$('#projects').append(HTMLprojectStart);
+	$('.project-entry:last').append(formattedProjectTitle)
+							.append(formattedProjectDates)
+							.append(formattedProjectDescription)
+							.append(formattedProjectImage);	
+	};
+} // encapsulating display function to show work info on page
 
 var education = {
     "Schools" : [
@@ -77,83 +152,12 @@ var education = {
             "url" :    "https://www.udacity.com/"
         }
     ]
-};
-
-var work = {
-    "jobs" : [ 
-        {
-            "employer" : "NewBay Media LCC", 
-            "title" : "Fullfilment Coordinator",
-            "dates" : "2011 - Present",
-            "location" : "New York City",
-            "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
-        },
-        {
-            "employer" : "Conway Stores", 
-            "title" : "Assistant Manager",
-            "dates" : "2006 - 2011",
-            "location" : "Bronx",
-            "description" : " Helped manager with daily duties"
-        }
-    ]
-};
-
-var projects = {
-    "projects" : [
-        {
-            "title" : "Print Ads",
-            "dates" : 2015,
-            "description" : "Created print designs for Music Magazines",
-            "images" : ["URL","URL"]
-        },
-        {
-            "title" : "Banners Ads",
-            "dates" : 2015,
-            "description" : "Created various banners ads to promote events and subscriptions",
-            "images" : ["URL","URL"]
-        },
-        {
-            "title" : "HTML Responsive Emails",
-            "dates" : 2015,
-            "description" : "Build HTML Newsletters and Marketing Emails",
-            "images" : ["URL", "URL"]
-        }
-    ]
-};
-
-var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
-
-
+}; // Education info JSON
 
 bio.display();
-
-// Bio info starts
-
-
-// Bio info ends
-
-//work section starts
-function displayWork() {
-    for (job in work.jobs){
-        var formattedWorkDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-        var formattedWorkEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-        var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-        var formattedWorkTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-        var formattedWorkDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-
-        $('#workExperience').append(HTMLworkStart);
-        $('div.work-entry:last')
-            .append(formattedWorkEmployer + formattedWorkTitle)
-            .append(formattedWorkDates)
-            .append(formattedWorkLocation)
-            .append(formattedWorkDescription);
-    };   
-}
-
-displayWork();
-
-
-//work section ends
+work.display();
+projects.display();
+// display resume info
 
 $('#main').append(internationalizeButton);
 function inName(name) {
