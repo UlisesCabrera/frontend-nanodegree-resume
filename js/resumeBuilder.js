@@ -22,6 +22,32 @@ var bio = {
     "Welcome Message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
     "skills" :  ["HTML 5", "Javascript", "CSS 3", "Adobe Suite" ]
 };
+bio.display = function() {
+	var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["contact info"]);
+	var formattedMobile = HTMLmobile.replace('%data%', bio["contact info"].Phone);
+	var formattedEmail = HTMLemail.replace('%data%', bio["contact info"]["E-Mail"])
+	var formattedBioPic = HTMLbioPic.replace('%data%', bio.Picture);
+	var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["Welcome Message"]);
+	var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio["contact info"]["Google Pus"]);
+	var formattedGitHub = HTMLgithub.replace('%data%', bio["contact info"].Github);
+	var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio["contact info"].LinkedIn);
+
+	$('#topContacts').append(formattedMobile)
+		.append(formattedEmail)
+		.append(formattedGitHub)
+		.append(formattedLinkedIn);
+	$('#header').append(formattedBioPic)
+		.append(formattedWlcMsg)
+		.append(HTMLskillsStart);
+
+	if (bio.skills) {
+		for (skill in bio.skills) {
+			var formattedSkills = HTMLskills.replace('%data%', bio.skills[skill]);
+			$('#header').append(formattedSkills);
+		};
+	}
+}
+
 
 var education = {
     "Schools" : [
@@ -99,33 +125,10 @@ var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>
 
 
 
-
+bio.display();
 
 // Bio info starts
-var formattedContactGeneric =  HTMLcontactGeneric.replace('%data%', bio["contact info"]);
-var formattedMobile = HTMLmobile.replace('%data%', bio["contact info"].Phone);
-var formattedEmail = HTMLemail.replace('%data%', bio["contact info"]["E-Mail"])
-var formattedBioPic = HTMLbioPic.replace('%data%', bio.Picture);
-var formattedWlcMsg = HTMLwelcomeMsg.replace('%data%', bio["Welcome Message"]);
-var formattedGooglePlus = HTMLgooglePlus.replace('%data%', bio["contact info"]["Google Pus"]);
-var formattedGitHub = HTMLgithub.replace('%data%', bio["contact info"].Github);
-var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio["contact info"].LinkedIn);
 
-
-$('#topContacts').append(formattedMobile)
-    .append(formattedEmail)
-    .append(formattedGitHub)
-    .append(formattedLinkedIn);
-$('#header').append(formattedBioPic)
-    .append(formattedWlcMsg)
-    .append(HTMLskillsStart);
-
-if (bio.skills) {
-    for (skill in bio.skills) {
-        var formattedSkills = HTMLskills.replace('%data%', bio.skills[skill]);
-        $('#header').append(formattedSkills);
-    };
-}
 
 // Bio info ends
 
