@@ -14,7 +14,7 @@ var bio = {
         "location" : "Yonkers, NY"
     },
     "picture" : "https://lh4.googleusercontent.com/-MFKmNuiPZIs/VW9Iu9oioMI/AAAAAAAAAls/xkvhAPDhWJ4/w718-h717/20140419_201830824_iOS.jpg",
-    "welcome message" : "Welcome to my profile, please feel free to look around and if you are insterested on working with me, contact me!",
+    "welcome message" : "Thank you for checking out my resume, let me know if I meet your requirements.",
     "skills" :  ["HTML 5", "Javascript", "CSS 3", "Adobe Suite" ]
 }; // Bio info JSON
 
@@ -57,10 +57,10 @@ var work = {
     "jobs" : [ 
         {
             "employer" : "NewBay Media LCC", 
-            "title" : "Fullfilment Coordinator",
+            "title" : "Fulfillment Coordinator",
             "dates" : "2011 - Present",
             "location" : "New York, NY",
-            "description" : " -Print orders <br> -Updating Reports <br> -Invoices coding and log <br/> -Customer Service          <br/> -E-Mails deployments"
+            "description" : " - Created HTML responsive e-mails using Zurb’s ink framework. <br> - Created subscription pages using Bootstrap and JavaScript. <br> - Managed various different types of reports. <br/> - Managed customer service for the all the magazine iTunes apps."
         },
         {
             "employer" : "Conway Stores", 
@@ -140,7 +140,7 @@ var education = {
             "name" : "New York Institute of English and Business",
             "dates" : "2012-2013",
             "location" : "New York, NY",
-            "major" : "Computerized Apllications",
+            "major" : "Computer Applications",
             "degree" : "Certificate",
             "url" :  "http://nyieb.org/"
 
@@ -192,20 +192,3 @@ education.display();
 
 $('#main').append(internationalizeButton);
 $('#mapDiv').append(googleMap);
-function inName(name) {
-    name = $('#name').text();
-    var arrayOfNames = name.split(" ");
-    var lastName = arrayOfNames[1].toUpperCase();
-    var firstName = arrayOfNames[0];
-    firstName = firstName.slice(0, 1).toUpperCase() + firstName.slice(1).toLowerCase();
-    var fullName = firstName + ' ' + lastName;
-    return fullName;
-}  //Internationalize Names function
-
-$(document).click(function(loc) {
-    // your code goes here
-    var x = loc.pageX;
-    var y = loc.pageY;
-
-    logClicks(x,y);
-}); // Collecting Click locations
